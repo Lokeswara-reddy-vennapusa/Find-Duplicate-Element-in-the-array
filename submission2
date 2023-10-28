@@ -1,0 +1,21 @@
+def find_repeating_elements(arr):
+    n = len(arr)
+    repeating_elements = []
+
+    for i in range(n):
+        # Get the absolute value of the element at the current index
+        abs_val = abs(arr[i])
+        
+        # Check if the element at abs_val index is negative, which means it has been visited before
+        if arr[abs_val] < 0:
+            repeating_elements.append(abs_val)
+        else:
+            # Mark the element at abs_val index as visited by making it negative
+            arr[abs_val] = -arr[abs_val]
+
+    return repeating_elements
+
+# Example usage
+arr = [1, 2, 3, 6, 3, 6, 1]
+repeating_elements = find_repeating_elements(arr)
+print("Repeating elements:", repeating_elements)
